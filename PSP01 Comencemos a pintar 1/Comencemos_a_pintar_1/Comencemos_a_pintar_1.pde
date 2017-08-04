@@ -1,7 +1,7 @@
 int x;
 
 void setup() {
-  size(600, 400); 
+  size(400, 400); 
   x = 100;
 }
 
@@ -13,8 +13,4 @@ void draw() {
   //Redonda Roja
   fill(255, 0, 0);
   ellipse(200, 200, 50, 50);
-  //Cuadrado Verde
-  fill(0, 255, 0);
-  rect(x, 300, 50, 50);
-  x = x + 1;
 }
