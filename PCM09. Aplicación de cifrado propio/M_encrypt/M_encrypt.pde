@@ -1,20 +1,16 @@
-float Version = 0.32;
+float Version = 0.33;
 PImage imagen;
-String txt = "lah mano arribah, citura solahh, la media guelta, danza koduroo";
+String txt = "Esto es un texto que no debe ser interceptado.";
 int xx, yy;
 
 void settings(){
-
     size(300,300);
 }
 
 void setup() {
   background(225);
-  xx = (int)sqrt(txt.length()/3);
-  if (xx/3 == (int)xx/3) yy = xx+2; 
-  else yy = xx;
+  println(cifradoCesar("hola", 2));
   
-
   //imagen = loadImage("img.tiff");
   //println(desencriptar_imagen(imagen));
 

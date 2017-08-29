@@ -32,11 +32,11 @@ String desencriptar_imagen(PImage imagen) {
     for (int x=0; x<imagen.width; x++) {
       color c = imagen.get(x, y);
       int ch = int((red(c)));
-      if(ch != 225)texto2 = texto2 + char(ch);
+      if (ch != 225)texto2 = texto2 + char(ch);
       ch = int((green(c)));
-      if(ch != 225)texto2 = texto2 + char(ch);
+      if (ch != 225)texto2 = texto2 + char(ch);
       ch = int((blue(c)));
-      if(ch != 225)texto2 = texto2 + char(ch);
+      if (ch != 225)texto2 = texto2 + char(ch);
     }
   }
   return texto2;
@@ -55,4 +55,15 @@ void encriptar_imagen(String texto) {
       x = 0;
     }
   }
+}
+
+String cifradoCesar(String texto, int clave) {
+  String resultado = "";
+
+  for (int i=0; i<texto.length(); i++) {
+    int numeroASCII = texto.charAt(i)+clave; 
+    resultado += char(numeroASCII);
+  }
+
+  return resultado;
 }
