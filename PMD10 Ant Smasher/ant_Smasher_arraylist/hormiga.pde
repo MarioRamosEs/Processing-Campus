@@ -8,22 +8,28 @@ class hormiga {
   private PVector tamanyo;
   private PVector objectiu;
   private int puntos;
+  private PImage imagen;
 
   hormiga(int tipo) {
     this.tipo = tipo;
-    this.pos = pos;
+    pos = new PVector (random (0, 500), random(0, 350));
     objectiu = new PVector (random (0, 500), random(0, 350));
+    direccion = new PVector(1, 1);
 
     switch(tipo) {
     case 1:
-      tamanyo = new PVector(30, 30);
+      tamanyo = new PVector(40, 50);
       puntos = 1;
       vidas = 1;
+      vel = 1;
+      imagen = imgHormigas[0];
       break;
     case 2:
-      tamanyo = new PVector(50, 100);
+      tamanyo = new PVector(50, 70);
       vidas = 2;
+      vel = 2;
       puntos = 2;
+      imagen = imgHormigas[1];
       break;
     }
   }
@@ -46,7 +52,7 @@ class hormiga {
   void actualizar() {
     if (viu) {
       pos.add(direccion.mult(vel).copy()); 
-      rect (pos.x, pos.y, tamanyo.x, tamanyo.y);
+      image(imagen, pos.x, pos.y, tamanyo.x, tamanyo.y);
       establecerRumbo();
       if (dist(pos.x, pos.y, objectiu.x, objectiu.y)<5) {
         objectiu = new PVector (random (0, 500), random(0, 350));
