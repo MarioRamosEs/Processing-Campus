@@ -1,10 +1,10 @@
 PShape imgCoche;
 float x, y, r=90, vr;
-PVector cocheSize = new PVector(100, 50);
+PVector cocheSize = new PVector(50, 25);
 float margenChoque;
 
 void setup() {
-  size(640, 360);
+  size(512, 512);
   shapeMode(CENTER);
   imgCoche = loadShape("coche.svg");
 
@@ -14,7 +14,7 @@ void setup() {
 } 
 
 void draw() {
-  background(255);
+  background(#9E9E9E);
 
   //Límites pantalla. Cuando choca el coche gira 180 grados.
   if (x<0+margenChoque) r = r - 180;
@@ -30,11 +30,12 @@ void draw() {
   x = x + sin(radians(-r))*vr;
   y = y + cos(radians(-r))*vr;
 
-  pushMatrix();
-  translate(x, y);
-  rotate(radians(r-90));
-  shape(imgCoche, 0, 0, cocheSize.x, cocheSize.y);
-  popMatrix();
+  //Pintar el coche
+  pushMatrix();           
+  translate(x, y);        //Establecemos el origen de coordenadas en la posición x, y
+  rotate(radians(r-90));  //Rotamos el origen de coordenadas
+  shape(imgCoche, 0, 0, cocheSize.x, cocheSize.y);  //Pintamos el coche en el origen
+  popMatrix();            //Deshacemos todo lo anterior
 }
 
 void keyPressed() {
