@@ -26,6 +26,7 @@ int selector = 0;
 int estado = 1;
 
 //Fantasmas
+ArrayList<Ghost> fantasmas;
 Ghost g1, g2, g3, g4;
 
 void settings() {
@@ -45,16 +46,19 @@ void setup() {
 	youWin = loadImage("YouWin.png");
   	youLose = loadImage("YouLose.png");
 
+  	//Inicializar fantasmas
+  	fantasmas = new ArrayList<Ghost>();
+
  	//Inicializar el mapa
 	mapa = new int[(int)mapSize.y][(int)mapSize.x];
 	cargarMapa("mapa1.txt");
 	areaDeteccion = tileSize+3;
 
 	//Inicializar fantasmas
-	g1 = new Ghost(imgGhost[0], new PVector(350, 50), 4);
-	g2 = new Ghost(imgGhost[1], new PVector(410, 290), 4);
-	g3 = new Ghost(imgGhost[2], new PVector(550, 130), 3);
-	g4 = new Ghost(imgGhost[3], new PVector(130, 370), 4);
+	fantasmas.add(new Ghost(imgGhost[0], new PVector(350,  50), 4));
+	fantasmas.add(new Ghost(imgGhost[1], new PVector(410, 290), 4));
+	fantasmas.add(new Ghost(imgGhost[2], new PVector(550, 130), 3));
+	fantasmas.add(new Ghost(imgGhost[3], new PVector(130, 370), 4));
 }
 
 void draw(){
@@ -91,10 +95,10 @@ void keyReleased(){
 void juego(){
 	pintarMapa(new PVector(tileSize/2,tileSize/2)); 
 	actualizarPlayer();
-	g1.update();
-	g2.update();
-	g3.update();
-	g4.update();
+	
+	for(Ghost f:fantasmas){
+		f.update();
+	}
 }
 
 void gameOver(){
