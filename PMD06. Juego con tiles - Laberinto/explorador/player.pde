@@ -20,9 +20,9 @@ class player {
     ellipse(px, py, 32, 32);
     
     textSize(32);
-    image(life, 10, 10, 32, 32);
+    image(life, 20, 30, 32, 32);
     text("x"+vidas, 44, 42);
-    image(mine, 10, 44, 32, 32);
+    image(piqueta, 20, 64, 32, 32);
     text("x"+picomc, 44, 76);
     arround();
     

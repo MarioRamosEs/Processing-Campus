@@ -1,8 +1,10 @@
+//V1.0
+
 mapa map;
 player jugador;
 
 PImage life;
-PImage mine;
+PImage piqueta;
 
 /*
 0.Pared: 50,25,70
@@ -18,10 +20,11 @@ void setup() {
   jugador = new player(map);
   
   life = loadImage("vida.png");
-  mine = loadImage("piqueta.png");
+  piqueta = loadImage("piqueta.png");
 
   rectMode(CENTER);
   ellipseMode(CENTER);
+  imageMode(CENTER);
 }
 
 
