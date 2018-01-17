@@ -43,9 +43,10 @@ class mapa {
             fill(220, 215, 100);
             rect((x*32)-16, (y*32)-16, 32, 32);
             break;
-          case 2:
-            fill(255, 0, 0);
+          case 2: //Bomba
+            fill(220, 215, 100);
             rect((x*32)-16, (y*32)-16, 32, 32);
+            image(bomba, (x*32)-16, (y*32)-16, 32, 32);
             break;
           case 3:
             fill(220, 215, 100);

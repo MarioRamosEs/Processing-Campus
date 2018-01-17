@@ -3,8 +3,7 @@
 mapa map;
 player jugador;
 
-PImage life;
-PImage piqueta;
+PImage life, piqueta, bomba;
 
 /*
 0.Pared: 50,25,70
@@ -21,6 +20,7 @@ void setup() {
   
   life = loadImage("vida.png");
   piqueta = loadImage("piqueta.png");
+  bomba = loadImage("tallShroom_red.png");
 
   rectMode(CENTER);
   ellipseMode(CENTER);
