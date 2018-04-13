@@ -25,7 +25,6 @@ class Pixel {
       break;
     }
 
-
     rect(pos.x, pos.y, size.x, size.y);
   }
 
