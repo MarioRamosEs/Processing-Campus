@@ -29,7 +29,7 @@ public class Map {
       pixelTemp = pixelMap[(int)posPixel.y][(int)posPixel.x-1];
       if (pixelTemp.getType() != 2) neighbors.add(pixelTemp);
     }
-    if (posPixel.x<pixelSize.x-1) {
+    if (posPixel.x<pixelMap[0].length-1) {
       pixelTemp = pixelMap[(int)posPixel.y][(int)posPixel.x+1];
       if (pixelTemp.getType() != 2) neighbors.add(pixelTemp);
     }
@@ -37,7 +37,7 @@ public class Map {
       pixelTemp = pixelMap[(int)posPixel.y-1][(int)posPixel.x];
       if (pixelTemp.getType() != 2) neighbors.add(pixelTemp);
     }
-    if (posPixel.y<pixelSize.y-1) { 
+    if (posPixel.y<pixelMap.length-1) { 
       pixelTemp = pixelMap[(int)posPixel.y+1][(int)posPixel.x];
       if (pixelTemp.getType() != 2) neighbors.add(pixelTemp);
     }
@@ -49,17 +49,6 @@ public class Map {
     //todo
     println("Mapa válido. Comenzando con el A*");
     return true;
-  }
-
-  public void calculateH() {
-    Pixel start = map.getStart();
-    Pixel end = map.getEnd();
-
-    for (Pixel[] pp : pixelMap) {
-      for (Pixel p : pp) {
-        p.calculateH(start.getPos(), end.getPos());
-      }
-    }
   }
 
   public Pixel getStart() {

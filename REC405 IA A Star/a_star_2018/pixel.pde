@@ -53,11 +53,9 @@ public class Pixel implements Comparable<Pixel> {
     text("H: " + h, posScreen.x+5, posScreen.y+20);
     text("F: " + f, posScreen.x+5, posScreen.y+30);
   }
-  
-  public void calculateH(PVector start, PVector end){
-    if(type == 1 || type == 2 || type == 3){                //Solo calculamos la h si somos suelo inicio o final
-      h = Math.round(dist(pos.x, pos.y, end.x, end.y));     //Calculo heurística
-    }
+
+  public Integer calculateH(PVector end) {
+    return Math.round(dist(pos.x, pos.y, end.x, end.y));     //Calculo heurística
   }
 
   //Getters y Setters
