@@ -9,13 +9,10 @@ public class Astar {
     this.map = map;
   }
 
-  public void analyzePixel(Pixel pixel) {
-
-
-
+  public Pixel analyzePixel(Pixel pixel) {
     if (pixel.isEnd) {
       println("Solucion encontrada"); 
-      return;
+      return pixel;
     }
 
     blackList.add(pixel);
@@ -23,7 +20,7 @@ public class Astar {
     for (Pixel p : neighbors) { //Añadimos a pq los pixels de neighbors que no estén. Ya se ordenan solos al ser una PriorityQueue
       if (!pq.contains(p) && !blackList.contains(p)) {
         println(p.getPos());
-        p.father = p;
+        p.father = pixel;
         p.g = pixel.g + 1;
         p.h = p.calculateH(start.getPos());
         p.f = p.g + p.h;
@@ -31,16 +28,26 @@ public class Astar {
       }
     }
 
+    if (pq.isEmpty()) {
+      return null;
+    }
+
     //Cogemos el primer elemento de la Cola y lo llamamos recursivamente
     Pixel p = (Pixel) pq.poll();
-    analyzePixel(p);
+    return analyzePixel(p);
   }
 
   public void init() {
     if (map.isaValidMap()) {
       start = map.getStart();
       end   = map.getEnd();   
-      analyzePixel(map.getStart());
+      Pixel solution = analyzePixel(map.getStart());
+
+      if (solution == null) println("Camino no encontrado");
+      else solution.father.setPath(); //Rebuild Path
+      
+      //ArrayList<Pixel> path = new ArrayList<Pixel>();
+      
     } else {
       println("Mapa no válido");
     }

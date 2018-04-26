@@ -58,6 +58,11 @@ public class Pixel implements Comparable<Pixel> {
     return Math.round(dist(pos.x, pos.y, end.x, end.y));     //Calculo heurística
   }
 
+  public void setPath() {
+    type = 5;
+    if (father != null && father.type != 5 && !father.isStart) father.setPath();
+  }
+
   //Getters y Setters
   public void setType(int type) {
     switch(type) {
