@@ -7,25 +7,23 @@ public class Pixel implements Comparable<Pixel> {
   private PVector size;
   private int type;
 
-  private float dist; //Guarda la distancia con el nodo final
   public Integer f = 0, g = 0, h = 0;
+  public boolean isStart = false;
+  public boolean isEnd = false;
 
   private Pixel father = null;
-
-  boolean isStart = false;
-  boolean isEnd = false;
-
-  //Implementacion
-  @Override 
-    int compareTo(Pixel other) {
-    return Integer.compare(f, other.f); // or faster: 'return num - other.num;'
-  }
 
   Pixel(PVector pos, PVector posScreen, PVector size, int type) {
     this.pos = pos;
     this.posScreen = posScreen;
     this.type = type;
     this.size = size;
+  }
+
+  //Implementacion
+  @Override 
+    int compareTo(Pixel other) {
+    return Integer.compare(f, other.f); //'return (f - other.f);'
   }
 
   void draw() {
@@ -82,14 +80,10 @@ public class Pixel implements Comparable<Pixel> {
     this.type = type;
   }
 
-  public void setDist(float dist) {
-    this.dist = dist;
-  }
-
   public void setFather(Pixel father) {
     this.father = father;
   }
-
+  
   public PVector getPos() { 
     return pos;
   }
