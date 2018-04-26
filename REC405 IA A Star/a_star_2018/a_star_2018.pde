@@ -1,5 +1,6 @@
-int selectedType = 0;
+int selectedType = 1;
 Map map = new Map();
+Astar astar = new Astar(map);
 
 void settings() {
   size((int)(map.pixelMap[0].length * map.pixelSize.x), (int)(map.pixelMap.length * map.pixelSize.y));
@@ -7,6 +8,7 @@ void settings() {
 
 void setup() {
   //noStroke();
+  textSize(7);
 }
 
 void draw() {
@@ -39,8 +41,8 @@ void keyReleased() {
     selectedType = 4;
     println("Poniendo final");
     break;
-  case ' ':
-    
+  case ' ': //Inicio del algoritmo
+    astar.init();
     break;
   }
 }
