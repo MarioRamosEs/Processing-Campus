@@ -1,35 +1,24 @@
-Pixel[][] pixelMap = new Pixel[30][30];
-PVector pixelSize = new PVector(20, 20);
 int selectedType = 0;
+Map map = new Map();
 
 void settings() {
-  size((int)(pixelMap[0].length * pixelSize.x), (int)(pixelMap.length * pixelSize.y));
+  size((int)(map.pixelMap[0].length * map.pixelSize.x), (int)(map.pixelMap.length * map.pixelSize.y));
 }
 
 void setup() {
   //noStroke();
-  for (int y = 0; y < pixelMap.length; ++y) {
-    for (int x = 0; x < pixelMap[0].length; ++x) {
-      PVector pos = new PVector(x*pixelSize.x, y*pixelSize.y);
-      pixelMap[y][x] = new Pixel(pos, pixelSize, 1);
-    }
-  }
 }
 
 void draw() {
   //Draw map
-  for (int y = 0; y < pixelMap.length; ++y) {
-    for (int x = 0; x < pixelMap[0].length; ++x) {
-      pixelMap[y][x].draw();
-    }
-  }
+  map.draw();
 }
 
 void mouseReleased() {
-  int x = (int)(mouseX/pixelSize.x);
-  int y = (int)(mouseY/pixelSize.y);
+  int x = (int)(mouseX/map.pixelSize.x);
+  int y = (int)(mouseY/map.pixelSize.y);
 
-  pixelMap[y][x].setType(selectedType);
+  map.pixelMap[y][x].setType(selectedType);
 }
 
 void keyReleased() {

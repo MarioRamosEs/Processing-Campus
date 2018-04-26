@@ -1,11 +1,7 @@
-class Astar{
-  
-  ArrayList<Pixel> pixelList = new ArrayList<>();
-  
-  Astar(){
-    
+class Astar {
+
+  private ArrayList<Pixel> pixelList = new ArrayList<Pixel>();
+
+  Astar() {
   }
-  
-  
-  
 }

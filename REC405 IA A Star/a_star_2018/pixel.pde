@@ -1,7 +1,7 @@
 class Pixel {
-  PVector pos;
-  PVector size;
-  int type;
+  private PVector pos;
+  private PVector size;
+  private int type;
 
   Pixel(PVector pos, PVector size, int type) {
     this.pos = pos;
