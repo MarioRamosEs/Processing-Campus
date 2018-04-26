@@ -39,5 +39,8 @@ void keyReleased() {
     selectedType = 4;
     println("Poniendo final");
     break;
+  case ' ':
+    
+    break;
   }
 }

@@ -1,4 +1,4 @@
-class Map {
+public class Map {
   public Pixel[][] pixelMap = new Pixel[30][30];
   public PVector pixelSize = new PVector(20, 20);
 
@@ -17,5 +17,8 @@ class Map {
         pixelMap[y][x].draw();
       }
     }
+  }
+  
+  public boolean issValidMap(){
   }
 }
