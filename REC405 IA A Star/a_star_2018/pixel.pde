@@ -3,6 +3,7 @@ import java.util.PriorityQueue;
 
 public class Pixel implements Comparable<Pixel> {
   private PVector pos;
+  private PVector posScreen;
   private PVector size;
   private int type;
 
@@ -20,8 +21,9 @@ public class Pixel implements Comparable<Pixel> {
     return Integer.compare(f, other.f); // or faster: 'return num - other.num;'
   }
 
-  Pixel(PVector pos, PVector size, int type) {
+  Pixel(PVector pos, PVector posScreen, PVector size, int type) {
     this.pos = pos;
+    this.posScreen = posScreen;
     this.type = type;
     this.size = size;
   }
@@ -45,16 +47,16 @@ public class Pixel implements Comparable<Pixel> {
       break;
     }
 
-    rect(pos.x, pos.y, size.x, size.y);
+    rect(posScreen.x, posScreen.y, size.x, size.y);
     fill(0);
-    text(f, pos.x+5, pos.y+10);
+    text("G: " + g, posScreen.x+5, posScreen.y+10);
+    text("H: " + h, posScreen.x+5, posScreen.y+20);
+    text("F: " + f, posScreen.x+5, posScreen.y+30);
   }
   
-  public void calculateF(PVector start, PVector end){
-    if(type == 1 || type == 2 || type == 3){                //Solo calculamos la f si somos suelo inicio o final
-      g = Math.round(dist(start.x, start.y, pos.x, pos.y)); //Calculo coste
+  public void calculateH(PVector start, PVector end){
+    if(type == 1 || type == 2 || type == 3){                //Solo calculamos la h si somos suelo inicio o final
       h = Math.round(dist(pos.x, pos.y, end.x, end.y));     //Calculo heurística
-      f = g + h;
     }
   }
 

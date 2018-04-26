@@ -1,12 +1,13 @@
 public class Map {
-  public Pixel[][] pixelMap = new Pixel[30][30];
-  public PVector pixelSize = new PVector(20, 20);
+  public Pixel[][] pixelMap = new Pixel[20][20];
+  public PVector pixelSize = new PVector(30, 30);
 
   Map() {
     for (int y = 0; y < pixelMap.length; ++y) {
       for (int x = 0; x < pixelMap[0].length; ++x) {
-        PVector pos = new PVector(x*pixelSize.x, y*pixelSize.y);
-        pixelMap[y][x] = new Pixel(pos, pixelSize, 1);
+        PVector pos = new PVector(x, y);
+        PVector posScreen = new PVector(x*pixelSize.x, y*pixelSize.y);
+        pixelMap[y][x] = new Pixel(pos, posScreen, pixelSize, 1);
       }
     }
   }
@@ -46,16 +47,17 @@ public class Map {
 
   public boolean isaValidMap() {
     //todo
+    println("Mapa válido. Comenzando con el A*");
     return true;
   }
 
-  public void calculateF() {
+  public void calculateH() {
     Pixel start = map.getStart();
     Pixel end = map.getEnd();
 
     for (Pixel[] pp : pixelMap) {
       for (Pixel p : pp) {
-        p.calculateF(start.getPos(), end.getPos());
+        p.calculateH(start.getPos(), end.getPos());
       }
     }
   }
