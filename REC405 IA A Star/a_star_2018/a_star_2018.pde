@@ -2,8 +2,8 @@ int selectedType = 1;
 Map map = new Map();
 Astar astar = new Astar(map);
 
-void settings() {
-  size((int)(map.pixelMap[0].length * map.pixelSize.x), (int)(map.pixelMap.length * map.pixelSize.y));
+void settings() { 
+  size((int)(map.pixelMap[0].length * map.pixelSize.x), (int)(map.pixelMap.length * map.pixelSize.y)); //Establece el tamaño de la ventana
 }
 
 void setup() {
@@ -13,11 +13,10 @@ void setup() {
 }
 
 void draw() {
-  //Draw map
-  map.draw();
+  map.draw(); //Draw map
 }
 
-void mouseReleased() {
+void mouseReleased() { //Actualiza el tipo de la casilla que hacemos click
   int x = (int)(mouseX/map.pixelSize.x);
   int y = (int)(mouseY/map.pixelSize.y);
 

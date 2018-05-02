@@ -45,8 +45,8 @@ public class Map {
     return neighbors;
   }
 
-  public boolean isaValidMap() {
-    //todo
+  public boolean isaValidMap() { //No implementado aún
+    //TODO
     println("Mapa válido. Comenzando con el A*");
     return true;
   }

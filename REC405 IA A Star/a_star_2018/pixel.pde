@@ -53,10 +53,10 @@ public class Pixel implements Comparable<Pixel> {
   }
 
   public Integer calculateH(PVector end) {
-    return Math.round(dist(pos.x, pos.y, end.x, end.y));     //Calculo heurística
+    return Math.round(dist(pos.x, pos.y, end.x, end.y));     //Calculo heurística. En este caso solo es la hipotenusa entre el nodo y el final.
   }
 
-  public void setPath() {
+  public void setPath() { //Función recursiva que reconstruye el camino
     type = 5;
     if (father != null && father.type != 5 && !father.isStart) father.setPath();
   }
