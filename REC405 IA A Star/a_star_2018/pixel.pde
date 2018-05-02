@@ -22,7 +22,7 @@ public class Pixel implements Comparable<Pixel> {
 
   //Implementacion
   @Override 
-    int compareTo(Pixel other) {
+    int compareTo(Pixel other) { //Función para ordenar la PriorityQueue
     return Integer.compare(f, other.f); //'return (f - other.f);'
   }
 
@@ -83,7 +83,7 @@ public class Pixel implements Comparable<Pixel> {
   public void setFather(Pixel father) {
     this.father = father;
   }
-  
+
   public PVector getPos() { 
     return pos;
   }

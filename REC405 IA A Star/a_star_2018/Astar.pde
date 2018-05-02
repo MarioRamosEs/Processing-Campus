@@ -19,7 +19,7 @@ public class Astar {
     ArrayList<Pixel> neighbors = map.getNeighbors(pixel);
     for (Pixel p : neighbors) { //Añadimos a pq los pixels de neighbors que no estén. Ya se ordenan solos al ser una PriorityQueue
       if (!pq.contains(p) && !blackList.contains(p)) {
-        println(p.getPos());
+        //println(p.getPos());
         p.setFather(pixel);
         p.g = pixel.g + 1;
         p.h = p.calculateH(start.getPos());

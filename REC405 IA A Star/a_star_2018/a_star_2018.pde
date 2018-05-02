@@ -7,6 +7,7 @@ void settings() {
 }
 
 void setup() {
+  instrucciones();
   //noStroke();
   textSize(7);
 }
@@ -45,4 +46,13 @@ void keyReleased() {
     astar.init();
     break;
   }
+}
+
+void instrucciones() {
+  println("Selecciona el tipo de casilla con los números");
+  println("1- Suelo");
+  println("2- Pared");
+  println("3- Inicio");
+  println("4- Final");
+  println("Pulsa espacio para buscar el camino");
 }
